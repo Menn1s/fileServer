@@ -1,24 +1,24 @@
 import socket
 
 def Main():
-    #host = '127.0.0.1'
-    host = raw_input("Enter server ip address")
+    host = '192.168.1.154'
+    #host = input("Enter server ip address")
     port = 5000
 
     s = socket.socket()
     s.connect((host,port))
 
-    filename = raw_input("Filename? -> ")
+    filename = input("Filename? -> ")
     if filename != 'q':
         s.send(filename)
         data = s.recv(1024)
         if data[:6] == 'EXISTS':
             filesize = long(data[6:])
-            message = raw_input("File exists, " + str(filesize) +\
+            message = input("File exists, " + str(filesize) +\
              "Bytes, download? (Y/N)? -> ")
             if message == 'Y':
                 s.send('OK')
-                f = open('new_' + filename), 'wb')
+                f = open(('new_' + filename), 'wb')
                 data = s.recv(1024)
                 totalRecv = length(data)
                 f.write(data)
