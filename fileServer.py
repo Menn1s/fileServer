@@ -5,7 +5,7 @@ import os
 def RetrFile(name, socket):
     filename = sock.recv(1024)
     if os.path.isfile(filename):
-        sock.send("EXISTS " + str(os.path.getsize(filename)))
+        filename.send("EXISTS " + str(os.path.getsize(filename)))
         userResponse = sock.recv(1024)
         if userResponse[:2] == 'OK':
             with open(filename, 'rb') as f:

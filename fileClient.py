@@ -1,7 +1,7 @@
 import socket
 
 def Main():
-    host = '192.168.1.154'
+    host = '127.0.0.1'
     #host = input("Enter server ip address")
     port = 5000
 
