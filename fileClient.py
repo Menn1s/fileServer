@@ -1,7 +1,8 @@
 import socket
 
 def Main():
-    host = '127.0.0.1'
+    #host = '127.0.0.1'
+    host = raw_input("Enter server ip address")
     port = 5000
 
     s = socket.socket()
@@ -25,12 +26,12 @@ def Main():
                     data = s.recv(1024)
                     totalRecv += len(data)
                     f.write(data)
-                    print "{0.2f}".format((totalRecv/float(filesize)) * 100) + \
-                    "% Done"
-                print "Download Complete!"
+                    print ("{0.2f}".format((totalRecv/float(filesize)) * 100) + \
+                    "% Done")
+                print ("Download Complete!")
         else:
-            print "File does not exist!"
+            print ("File does not exist!")
     s.close()
 
 if __name__ == '__main__':
-    Main() 
+    Main()

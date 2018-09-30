@@ -28,10 +28,10 @@ def Main():
 
     s.listen(5)
 
-    print "Server Started."
+    print ("Server Started.")
     while True:
         c, addr = s.accept()
-        print "client connected ip:<" + str(addr) + ">"
+        print ("client connected ip:<" + str(addr) + ">")
         t = threading.Thread(target=RetrFile, args=("retrThread", c))
         t.start()
 
